@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Kinect;
+using Microsoft.Kinect.Toolkit;
+using System.ComponentModel;
 
 namespace KinectApp
 {
@@ -27,6 +29,7 @@ namespace KinectApp
         Skeleton[] skeletonBuffer = null;   // kinectからの骨格情報を受け取るバッファ
         BitmapImage maskImage = null;   // 顔マスク用画像（今回未使用）
         DrawingVisual drawVisual = new DrawingVisual(); // ビットマップへの描画用DrawingVisual
+        KinectSensorChooser kinectChooser = new KinectSensorChooser();  // 起動・終了処理用のSensorChooser
 
         bool checkedFlag = false;
 
@@ -37,11 +40,39 @@ namespace KinectApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            KinectSensor kinect = KinectSensor.KinectSensors[0];    // センサーの取得
+            kinectChooser.KinectChanged += kinectChooser_KinectChanged;
+            kinectChooser.PropertyChanged += kinectChooser_PropertyChanged;
+            kinectChooser.Start();
+        }
+
+        void kinectChooser_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if("Status".Equals(e.PropertyName))
+                Console.WriteLine("Status: "+kinectChooser.Status);
+        }
+
+        void kinectChooser_KinectChanged(object sender, KinectChangedEventArgs e)
+        {
+            if (e.OldSensor != null)
+                UnInitKinectSensor(e.OldSensor);
+
+            if (e.NewSensor != null)
+                InitKinectSensor(e.NewSensor);
+        }
+
+        private void UnInitKinectSensor(KinectSensor kinectSensor)
+        {
+            kinectSensor.AllFramesReady -= AllFrameReady;
+            
+        }
+
+        private void InitKinectSensor(KinectSensor kinect)
+        {
+            //KinectSensor kinect = KinectSensor.KinectSensors[0];    // センサーの取得
             kinect.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
 
             maskImage = new BitmapImage();
-            
+
             ColorImageStream clrStream = kinect.ColorStream;    // RGBカメラストリームの取得
             clrStream.Enable(rgbFormat);  // 取得するフォーマットを指定して有効化
             SkeletonStream skelStream = kinect.SkeletonStream;  // 骨格ストリームの取得
@@ -49,14 +80,13 @@ namespace KinectApp
 
             pixelBuffer = new byte[kinect.ColorStream.FramePixelDataLength];    // ピクセルデータの量だけ配列作成
             skeletonBuffer = new Skeleton[skelStream.FrameSkeletonArrayLength]; // 骨格データの量だけ配列作成
-            bmpBuffer = new RenderTargetBitmap(clrStream.FrameWidth,clrStream.FrameHeight,96,96,PixelFormats.Default);
+            bmpBuffer = new RenderTargetBitmap(clrStream.FrameWidth, clrStream.FrameHeight, 96, 96, PixelFormats.Default);
             rgbImage.Source = bmpBuffer;    // 画像をImageに入れる
 
             //kinect.ColorFrameReady += ColorImageReady;  // イベントハンドラ登録
             kinect.AllFramesReady += AllFrameReady;
 
             kinect.Start(); // センサーからのストリーム取得を開始
-
         }
 
         private void AllFrameReady(object sender, AllFramesReadyEventArgs e)
@@ -193,6 +223,11 @@ namespace KinectApp
             textrwristy.Text = "Y:" + rWrist.Position.Y;
             textrwristz.Text = "Z:" + rWrist.Position.Z;
 
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            kinectChooser.Stop();
         }
 
 

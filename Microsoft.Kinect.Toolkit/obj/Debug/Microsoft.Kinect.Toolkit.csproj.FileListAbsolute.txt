@@ -1,0 +1,13 @@
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.dll
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.pdb
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.dll.CodeAnalysisLog.xml
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\bin\Debug\Microsoft.Kinect.Toolkit.dll.lastcodeanalysissucceeded
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.csprojResolveAssemblyReference.cache
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\obj\Debug\KinectSensorChooserUI.baml
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\obj\Debug\KinectSensorChooserUI.g.cs
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit_MarkupCompile.cache
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.g.resources
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.Properties.Resources.resources
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.csproj.GenerateResource.Cache
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.dll
+C:\Users\sukune\Documents\Visual Studio 2012\Projects\KinectApp\Microsoft.Kinect.Toolkit\obj\Debug\Microsoft.Kinect.Toolkit.pdb

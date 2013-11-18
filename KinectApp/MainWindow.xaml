@@ -1,7 +1,7 @@
 ﻿<Window x:Class="KinectApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="741.418" Loaded="Window_Loaded">
+        Title="MainWindow" Height="350" Width="741.418" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid>
         <Image x:Name="rgbImage" Margin="281,0,0,0"/>
         <Rectangle x:Name="flagrect" Fill="Blue" HorizontalAlignment="Left" Height="30" Margin="234,279,0,0" Stroke="Black" VerticalAlignment="Top" Width="30"/>
