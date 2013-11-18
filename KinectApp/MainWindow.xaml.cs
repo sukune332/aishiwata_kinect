@@ -186,12 +186,6 @@ namespace KinectApp
             Joint head = sk.Joints[JointType.Head];
             Joint rWrist = sk.Joints[JointType.WristRight];
 
-            var dispatcher = this.Dispatcher;
-            if (dispatcher. == true)
-            {
-                this.Dispatcher.BeginInvoke(new Action<Skeleton>(this.printText), sk);
-                return;
-            }
             textHeadx.Text = "X:" + head.Position.X;
             textHeady.Text = "Y:" + head.Position.Y;
             textHeadz.Text = "Z:" + head.Position.Z;
