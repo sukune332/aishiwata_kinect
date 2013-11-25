@@ -78,7 +78,7 @@ namespace KinectApp
             SkeletonStream skelStream = kinect.SkeletonStream;  // 骨格ストリームの取得
             skelStream.Enable();
 
-            pixelBuffer = new byte[kinect.ColorStream.FramePixelDataLength];    // ピクセルデータの量だけ配列作成
+            pixelBuffer = new byte[clrStream.FramePixelDataLength];    // ピクセルデータの量だけ配列作成
             skeletonBuffer = new Skeleton[skelStream.FrameSkeletonArrayLength]; // 骨格データの量だけ配列作成
             bmpBuffer = new RenderTargetBitmap(clrStream.FrameWidth, clrStream.FrameHeight, 96, 96, PixelFormats.Default);
             rgbImage.Source = bmpBuffer;    // 画像をImageに入れる
@@ -123,6 +123,7 @@ namespace KinectApp
             bgImg.WritePixels(new Int32Rect(0, 0, frmWidth, frmHeight),pixelBuffer,frmWidth*4,0);
             drawContext.DrawImage(bgImg, new Rect(0, 0, frmWidth, frmHeight));
 
+            /*
             for (int idx = 0; headList != null && idx < headList.Count; ++idx)
             {
                 ColorImagePoint headPt = kinect.MapSkeletonPointToColor(headList[idx], rgbFormat);
@@ -130,6 +131,7 @@ namespace KinectApp
                 //drawContext.DrawImage(maskImage, rect);
                 //Console.WriteLine("headPt.X:"+headPt.X+" headPt.Y:"+headPt.Y);
             }
+            */
 
             drawContext.Close();
             bmpBuffer.Render(drawVisual);
@@ -167,42 +169,40 @@ namespace KinectApp
                     continue;
 
                 Joint head = skeleton.Joints[JointType.Head];
-                Joint rWrist = skeleton.Joints[JointType.WristRight];
-                Joint rElbow = skeleton.Joints[JointType.ElbowRight];
-                Joint lElbow = skeleton.Joints[JointType.ElbowLeft];
-                Joint lShoulder = skeleton.Joints[JointType.ShoulderLeft];
+                Joint rHand = skeleton.Joints[JointType.HandRight];
+                //Joint rWrist = skeleton.Joints[JointType.WristRight];
+                //Joint rElbow = skeleton.Joints[JointType.ElbowRight];
+                //Joint lElbow = skeleton.Joints[JointType.ElbowLeft];
+                //Joint lShoulder = skeleton.Joints[JointType.ShoulderLeft];
 
                 if ((head.TrackingState != JointTrackingState.Tracked &&
                     head.TrackingState != JointTrackingState.Inferred)
-                    || (rWrist.TrackingState != JointTrackingState.Tracked &&
-                    rWrist.TrackingState != JointTrackingState.Inferred)
-                    || (rElbow.TrackingState != JointTrackingState.Tracked &&
-                    rElbow.TrackingState != JointTrackingState.Inferred)
-                    || (lElbow.TrackingState != JointTrackingState.Tracked &&
-                    lElbow.TrackingState != JointTrackingState.Inferred)
-                    || (lShoulder.TrackingState != JointTrackingState.Tracked &&
-                    lShoulder.TrackingState != JointTrackingState.Inferred))
+                    || (rHand.TrackingState != JointTrackingState.Tracked &&
+                    rHand.TrackingState != JointTrackingState.Inferred)
+                    //|| (rWrist.TrackingState != JointTrackingState.Tracked &&
+                    //rWrist.TrackingState != JointTrackingState.Inferred)
+                    //|| (rElbow.TrackingState != JointTrackingState.Tracked &&
+                    //rElbow.TrackingState != JointTrackingState.Inferred)
+                    //|| (lElbow.TrackingState != JointTrackingState.Tracked &&
+                    //lElbow.TrackingState != JointTrackingState.Inferred)
+                    //|| (lShoulder.TrackingState != JointTrackingState.Tracked &&
+                    //lShoulder.TrackingState != JointTrackingState.Inferred)
+                    )
                     continue;
 
 
                 printText(skeleton);
 
 
-                if (head.Position.X > rWrist.Position.X)
+                if (head.Position.X > rHand.Position.X)
                 {
-                    if (!checkedFlag)
-                    {
                         checkedFlag = true;
                         flagrect.Fill = Brushes.Red;
-                    }
                 }
                 else
                 {
-                    if (checkedFlag)
-                    {
                         checkedFlag = false;
                         flagrect.Fill = Brushes.Blue;
-                    }
                 }
 
                 results.Add(head.Position);
