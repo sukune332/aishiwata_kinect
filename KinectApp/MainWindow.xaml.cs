@@ -30,6 +30,8 @@ namespace KinectApp
         BitmapImage maskImage = null;   // 顔マスク用画像（今回未使用）
         DrawingVisual drawVisual = new DrawingVisual(); // ビットマップへの描画用DrawingVisual
         KinectSensorChooser kinectChooser = new KinectSensorChooser();  // 起動・終了処理用のSensorChooser
+        String[] url = new String[] { "http://www.yahoo.co.jp/", "http://www.teu.ac.jp/"};
+
 
         bool checkedFlag = false;
 
@@ -40,6 +42,8 @@ namespace KinectApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            webBrowser1.Source = new Uri(url[0]);
+
             kinectChooser.KinectChanged += kinectChooser_KinectChanged;
             kinectChooser.PropertyChanged += kinectChooser_PropertyChanged;
             kinectChooser.Start();
@@ -194,15 +198,26 @@ namespace KinectApp
                 printText(skeleton);
 
 
+                
                 if (head.Position.X > rHand.Position.X)
                 {
-                        checkedFlag = true;
-                        flagrect.Fill = Brushes.Red;
+                    if (!checkedFlag)
+                    {
+                        webBrowser1.Source = new Uri(url[0]);
+                    }
+                    
+                    checkedFlag = true;
+                    flagrect.Fill = Brushes.Red;
+                    
                 }
                 else
                 {
-                        checkedFlag = false;
-                        flagrect.Fill = Brushes.Blue;
+                    if (!checkedFlag)
+                    {
+                        webBrowser1.Source = new Uri(url[1]);
+                    }
+                    checkedFlag = false;
+                    flagrect.Fill = Brushes.Blue;
                 }
 
                 results.Add(head.Position);

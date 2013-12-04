@@ -1,18 +1,19 @@
 ﻿<Window x:Class="KinectApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="741.418" Loaded="Window_Loaded" Closed="Window_Closed">
+        Title="MainWindow" Height="821.642" Width="1077.239" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid>
-        <Image x:Name="rgbImage" Margin="281,0,0,0"/>
-        <Rectangle x:Name="flagrect" Fill="Blue" HorizontalAlignment="Left" Height="30" Margin="234,279,0,0" Stroke="Black" VerticalAlignment="Top" Width="30"/>
-        <TextBlock x:Name="textHeadx" HorizontalAlignment="Left" Margin="10,85,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="18" Width="271"/>
-        <TextBlock x:Name="textHeadTITLE" HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap" Text="あたま" VerticalAlignment="Top" Height="18" Width="151"/>
-        <TextBlock x:Name="textHeady" HorizontalAlignment="Left" Margin="10,103,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="18" Width="271"/>
-        <TextBlock x:Name="textHeadz" HorizontalAlignment="Left" Margin="10,121,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="18" Width="271"/>
-        <TextBlock x:Name="textrWristTITLE" HorizontalAlignment="Left" Margin="10,167,0,0" TextWrapping="Wrap" Text="みぎて" VerticalAlignment="Top" Height="18" Width="271"/>
-        <TextBlock x:Name="textrwristx" HorizontalAlignment="Left" Margin="10,185,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="18" Width="271"/>
-        <TextBlock x:Name="textrwristy" HorizontalAlignment="Left" Margin="10,203,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="18" Width="271"/>
-        <TextBlock x:Name="textrwristz" HorizontalAlignment="Left" Margin="10,221,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="18" Width="271"/>
+        <Image x:Name="rgbImage" Margin="10,204,465,396"/>
+        <Rectangle x:Name="flagrect" Fill="Blue" HorizontalAlignment="Left" Height="30" Margin="10,169,0,0" Stroke="Black" VerticalAlignment="Top" Width="30"/>
+        <TextBlock x:Name="textHeadx" HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="18" Width="271"/>
+        <TextBlock x:Name="textHeadTITLE" HorizontalAlignment="Left" Margin="10,12,0,0" TextWrapping="Wrap" Text="あたま" VerticalAlignment="Top" Height="18" Width="151"/>
+        <TextBlock x:Name="textHeady" HorizontalAlignment="Left" Margin="10,48,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="18" Width="271"/>
+        <TextBlock x:Name="textHeadz" HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="18" Width="271"/>
+        <TextBlock x:Name="textrWristTITLE" HorizontalAlignment="Left" Margin="10,92,0,0" TextWrapping="Wrap" Text="みぎて" VerticalAlignment="Top" Height="18" Width="271"/>
+        <TextBlock x:Name="textrwristx" HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="18" Width="271"/>
+        <TextBlock x:Name="textrwristy" HorizontalAlignment="Left" Margin="10,128,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="18" Width="271"/>
+        <TextBlock x:Name="textrwristz" HorizontalAlignment="Left" Margin="10,146,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="18" Width="271"/>
+        <WebBrowser x:Name="webBrowser1" HorizontalAlignment="Left" Height="771" Margin="286,10,0,0" VerticalAlignment="Top" Width="773"/>
 
     </Grid>
 </Window>
